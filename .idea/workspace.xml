@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66056665-2cbb-44b7-99f5-b39fd5908178" name="Changes" comment="redy for deploy">
+    <list default="true" id="66056665-2cbb-44b7-99f5-b39fd5908178" name="Changes" comment="api call updared">
+      <change afterPath="$PROJECT_DIR$/index.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,13 +112,22 @@
       <option name="project" value="LOCAL" />
       <updated>1709820927584</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="api call updared">
+      <option name="closed" value="true" />
+      <created>1709821516870</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1709821516870</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial state" />
     <MESSAGE value="index file added" />
     <MESSAGE value="redy for deploy" />
-    <option name="LAST_COMMIT_MESSAGE" value="redy for deploy" />
+    <MESSAGE value="api call updared" />
+    <option name="LAST_COMMIT_MESSAGE" value="api call updared" />
   </component>
 </project>
