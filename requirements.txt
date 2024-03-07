@@ -1,7 +1,7 @@
-Flask-cors==4.00
+Flask-cors==4.0.0
 langchain==0.1.11
 langchain-community==0.0.27
 nest-asyncio==1.5.1
-flask==2.1.0
-werkzeug==0.16.1
+flask==3.0.2
+werkzeug==3.0.1
 
