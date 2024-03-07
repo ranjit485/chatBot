@@ -18,7 +18,6 @@ nest_asyncio.apply()
 loader = TextLoader("Data/d1.txt")
 docs = loader.load()
 
-
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=109, chunk_overlap=20)
 chunks = text_splitter.split_documents(docs)
 
@@ -100,3 +99,5 @@ def generate_ans():
         return "No question provided in the request."
 
 
+if __name__ == '__main__':
+    app.run()
