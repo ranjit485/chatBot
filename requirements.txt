@@ -1,0 +1,5 @@
+flask-cors==3.0.10
+langchain==1.0.0
+langchain-community==1.0.0
+nest-asyncio==1.5.1
+flask==2.1.0
