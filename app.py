@@ -99,5 +99,10 @@ def generate_ans():
         return "No question provided in the request."
 
 
+@app.route('/', methods=['GET'])
+def homer():
+    return "home iam hello"
+
+
 if __name__ == '__main__':
     app.run()
