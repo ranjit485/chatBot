@@ -1,0 +1,103 @@
+College Information:
+- College Name: ABC University
+- Location: Citytown, Stateville
+- Established: 1990
+
+Principal:
+- Principal ID: 5001
+  - Name: Rajit Patil
+  - Qualification: Ph.D. in Computer
+  - Experience: 20 years
+
+Faculty Qualifications:
+- Professor ID: 2001
+  - Name: Dr. Anil Khanna
+  - Department: Computer Science
+  - Qualification: Ph.D. in Computer Science
+  - Experience: 15 years
+- Professor ID: 2002
+  - Name: Dr. Jaya Mehta
+  - Department: Electrical Engineering
+  - Qualification: M.Tech in Electrical Engineering
+  - Experience: 12 years
+- Professor ID: 2003
+  - Name: Dr. Amit Patel
+  - Department: Biology
+  - Qualification: Ph.D. in Molecular Biology
+  - Experience: 18 years
+
+Students:
+- Student ID: 1001
+  - Name: Rajesh Kumar
+  - Major: Computer Science
+  - GPA: 3.5
+  - Placement Status: Not Placed
+- Student ID: 1002
+  - Name: Priya Sharma
+  - Major: Electrical Engineering
+  - GPA: 3.2
+  - Placement Status: Placed (Company: TechIndia, Package: ₹6,00,000)
+- Student ID: 1003
+  - Name: Ananya Desai
+  - Major: Biology
+  - GPA: 3.8
+  - Placement Status: Not Placed
+
+Courses:
+- Course ID: CS101
+  - Title: Introduction to Programming
+  - Professor: Dr. Anil Khanna
+  - Fee: ₹30,000
+- Course ID: EE201
+  - Title: Circuits and Systems
+  - Professor: Dr. Jaya Mehta
+  - Fee: ₹35,000
+- Course ID: BIO301
+  - Title: Genetics and Evolution
+  - Professor: Dr. Amit Patel
+  - Fee: ₹32,000
+
+Enrollments:
+- Student ID: 1001
+  - Course ID: CS101
+  - Semester: Spring 2023
+- Student ID: 1002
+  - Course ID: EE201
+  - Semester: Spring 2023
+- Student ID: 1003
+  - Course ID: BIO301
+  - Semester: Spring 2023
+
+Grades:
+- Student ID: 1001
+  - Course ID: CS101
+  - Grade: A
+- Student ID: 1002
+  - Course ID: EE201
+  - Grade: B+
+- Student ID: 1003
+  - Course ID: BIO301
+  - Grade: A-
+
+Departments:
+- Department ID: 3001
+  - Name: Computer Science
+- Department ID: 3002
+  - Name: Electrical Engineering
+- Department ID: 3003
+  - Name: Biology
+
+Campus Placements:
+- Placement Office: ABC Placements
+- Placement Percentage: 80%
+- Top Recruiting Companies: TechIndia, InnovateIT, BioTech Solutions
+
+Hostel Facilities:
+- Hostel Name: University Hostels
+- Room Types: Single, Double, Triple
+- Facilities: Wi-Fi, Laundry, 24/7 Security
+
+Canteen Rates:
+- Canteen Name: Campus Delights
+- Average Meal Cost: ₹150
+- Popular Items: Veg Biryani (₹200), Paneer Roll (₹100), Chai (₹20)
