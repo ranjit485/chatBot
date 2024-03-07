@@ -290,7 +290,7 @@
 
 
         // Make the API call using fetch
-        fetch(`http://127.0.0.1:5000/api/v0/ask?question=${encodeURIComponent(userMessage)}`, {
+        fetch(`https://chat-bot-six-rouge.vercel.app/api/v0/ask?question=${encodeURIComponent(userMessage)}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'text/plain',  // Adjust the content type if needed
