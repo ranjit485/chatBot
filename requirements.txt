@@ -1,5 +1,5 @@
 flask-cors==3.0.10
-langchain==1.1.11
+langchain==0.1.11
 langchain-community==0.0.27
 nest-asyncio==1.5.1
 flask==2.1.0
