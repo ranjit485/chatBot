@@ -9,7 +9,7 @@ import nest_asyncio
 from langchain_community.embeddings import HuggingFaceInferenceAPIEmbeddings
 from langchain_community.vectorstores import Chroma
 import os
-from flask import Flask, request
+from flask import Flask, request, render_template
 
 os.environ["HUGGINGFACEHUB_API_TOKEN"] = "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"
 
@@ -89,6 +89,16 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes in the app
 
 
+@app.route('/')
+def start():
+    return "Chat Bot is running"
+
+
+@app.route('/chat')
+def chat():
+    return render_template("index.html")
+
+
 @app.route('/api/v0/ask', methods=['GET'])
 def generate_ans():
     user_query = request.args.get('question')
@@ -98,11 +108,3 @@ def generate_ans():
     else:
         return "No question provided in the request."
 
-
-@app.route('/', methods=['GET'])
-def homer():
-    return "home iam hello"
-
-
-if __name__ == '__main__':
-    app.run()
