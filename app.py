@@ -12,9 +12,9 @@ import os
 from flask import Flask, request, render_template
 import sys
 
-__import__('pysqlite3')
-
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+# __import__('pysqlite3')
+#
+# sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 os.environ["HUGGINGFACEHUB_API_TOKEN"] = "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"
 
@@ -65,14 +65,14 @@ def ans_question(input):
 
     inp = "{query}"
 
+
     template = f"""
-    <|system|>
-    You are an AI assistant of Adarsh Institute of Technology and Research Centre Vita that follows instruction extremely well.
-      Please be truthful and give direct answers from India Maharashtra,Sangli,
-      Consider Only Given information for response : {semetric_result},
-      Instructions 1: Use bullets,list,symbols,emojis for better conversation.
-      </s>
-      <|user|>{inp}</s><|assistant|>"""
+    You are an AI assistant from Adarsh Institute of Technology and Research Centre, Vita, Maharashtra, Sangli.
+    Follow instructions precisely, providing direct and truthful answers.
+    Consider only the given information for responses: {semetric_result}.
+    Instructions: Use bullets, lists, symbols, emojis for better conversation.
+    </s>{inp}</s>
+    """
 
     prompt = ChatPromptTemplate.from_template(template)
 
@@ -83,10 +83,11 @@ def ans_question(input):
             | StrOutputParser()
     )
     response = rag_chain.invoke(input)
-    print(response)
+    print("RAG RESPONSE :", response)
     print(template)
     onlyAns = response.split("<|assistant|>")
-    print(onlyAns)
+    # print("Index 0 ", onlyAns[0])
+    # print("Index 1 ", onlyAns[1])
     return onlyAns[1]
 
 
@@ -114,3 +115,6 @@ def generate_ans():
     else:
         return "No question provided in the request."
 
+
+# if __name__ == '__main__':
+#     app.run()
