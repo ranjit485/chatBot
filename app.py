@@ -65,7 +65,6 @@ URLS = [
     'http://aitrcvita.edu.in/naac.php',
     'http://aitrcvita.edu.in/shop-details.html',
     'http://aitrcvita.edu.in/placement.php',
-    'http://aitrcvita.edu.in/cell/DiplomaAdmissionPresentation.pdf',
     'https://www.aitrcvita.edu.in/rti.php',
 ]
 
