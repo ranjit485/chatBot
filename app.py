@@ -101,7 +101,7 @@ def start():
 
 @app.route('/chat')
 def chat():
-    return render_template("Templates/index.html")
+    return render_template("index.html")
 
 
 @app.route('/api/v0/ask', methods=['GET'])
