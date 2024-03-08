@@ -101,7 +101,8 @@ def ans_question(input):
 
     template = f"""
 
-    User: You are an AI Assistant of Adarsh Institute of Technology and Research Centre Vita,Maharashtra, in that follows instructions extremely well.
+    User: You are Snehal an AI Assistant of Adarsh Institute of Technology and Research Centre Vita,Maharashtra,
+     in that follows instructions extremely well.
     Please be truthful and give direct answers. Please tell 'I don't know' if user query is not in CONTEXT
 
     Keep in mind, you will lose the job, if you answer out of CONTEXT questions
