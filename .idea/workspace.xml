@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66056665-2cbb-44b7-99f5-b39fd5908178" name="Changes" comment="update 21" />
+    <list default="true" id="66056665-2cbb-44b7-99f5-b39fd5908178" name="Changes" comment="update 22" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -301,11 +301,18 @@
       <option name="project" value="LOCAL" />
       <updated>1709863558190</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="update 22">
+      <option name="closed" value="true" />
+      <created>1709863857727</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1709863857727</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="initial state" />
     <MESSAGE value="index file added" />
     <MESSAGE value="redy for deploy" />
     <MESSAGE value="api call updared" />
@@ -330,7 +337,8 @@
     <MESSAGE value="update 19" />
     <MESSAGE value="update 20" />
     <MESSAGE value="update 21" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 21" />
+    <MESSAGE value="update 22" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 22" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
