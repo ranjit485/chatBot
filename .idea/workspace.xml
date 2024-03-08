@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66056665-2cbb-44b7-99f5-b39fd5908178" name="Changes" comment="update 26">
+    <list default="true" id="66056665-2cbb-44b7-99f5-b39fd5908178" name="Changes" comment="update 27">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,8 +54,8 @@
       <recent name="C:\Users\STL LAB\PycharmProjects\ChatBot" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\STL LAB\PycharmProjects\ChatBot" />
       <recent name="C:\Users\STL LAB\PycharmProjects\ChatBot\Templates" />
+      <recent name="C:\Users\STL LAB\PycharmProjects\ChatBot" />
     </key>
   </component>
   <component name="RunManager">
@@ -344,11 +346,18 @@
       <option name="project" value="LOCAL" />
       <updated>1709867346609</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="update 27">
+      <option name="closed" value="true" />
+      <created>1709868695336</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1709868695336</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="api call update 3" />
     <MESSAGE value="api call update 4" />
     <MESSAGE value="api call update 5" />
     <MESSAGE value="api call update 6" />
@@ -373,17 +382,7 @@
     <MESSAGE value="update 24" />
     <MESSAGE value="update 25" />
     <MESSAGE value="update 26" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 26" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/app.py</url>
-          <line>92</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="update 27" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 27" />
   </component>
 </project>
