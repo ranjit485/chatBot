@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66056665-2cbb-44b7-99f5-b39fd5908178" name="Changes" comment="update 23">
+    <list default="true" id="66056665-2cbb-44b7-99f5-b39fd5908178" name="Changes" comment="update 24">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
@@ -320,11 +320,18 @@
       <option name="project" value="LOCAL" />
       <updated>1709864596116</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="update 24">
+      <option name="closed" value="true" />
+      <created>1709865905821</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1709865905821</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="redy for deploy" />
     <MESSAGE value="api call updared" />
     <MESSAGE value="api call update 2" />
     <MESSAGE value="api call update 3" />
@@ -349,7 +356,8 @@
     <MESSAGE value="update 21" />
     <MESSAGE value="update 22" />
     <MESSAGE value="update 23" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 23" />
+    <MESSAGE value="update 24" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 24" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
