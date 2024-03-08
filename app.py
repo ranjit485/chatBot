@@ -12,9 +12,9 @@ import os
 from flask import Flask, request, render_template
 import sys
 
-__import__('pysqlite3')
+# __import__('pysqlite3')
 
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+# sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 os.environ["HUGGINGFACEHUB_API_TOKEN"] = "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"
 
@@ -90,13 +90,14 @@ def ans_question(input):
     return onlyAns[1]
 
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='template')
+
 CORS(app)  # Enable CORS for all routes in the app
 
 
 @app.route('/')
 def start():
-    return "Chat Bot is running"
+    return render_template("index.html")
 
 
 @app.route('/chat')
@@ -113,6 +114,3 @@ def generate_ans():
     else:
         return "No question provided in the request."
 
-
-if __name__ == '__main__':
-    app.run()
