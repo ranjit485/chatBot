@@ -1,5 +1,5 @@
 from flask_cors import CORS
-from langchain.document_loaders import TextLoader
+from langchain_community.document_loaders import TextLoader
 from langchain.text_splitter import CharacterTextSplitter, RecursiveCharacterTextSplitter
 from langchain_community.llms import HuggingFaceHub
 from langchain.schema.runnable import RunnablePassthrough
