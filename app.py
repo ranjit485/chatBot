@@ -76,10 +76,10 @@ data = loader.load()
 text_splitter = CharacterTextSplitter(chunk_size=2000, chunk_overlap=0)
 chunks = text_splitter.split_documents(data)
 
-for i in data:
-    page_con = i.page_content
-    print(len(page_con))
-    print(page_con)
+# for i in data:
+#     page_con = i.page_content
+#     print(len(page_con))
+#     print(page_con)
 
 print("this is demo chunk :", chunks[1])
 
