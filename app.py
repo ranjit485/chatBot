@@ -108,7 +108,7 @@ def search_in_db(userinput):
 
 
 #  Generate response with llm
-def ans_question(input):
+def ans_question(u_input):
     search_db = vectorstore.similarity_search(input)
     context = search_db[0].page_content
 
@@ -122,7 +122,7 @@ def ans_question(input):
     Keep in mind, you will lose the job, if you answer out of CONTEXT questions
     
     CONTEXT: {context}
-    Query: {input}
+    Query: {u_input}
     
     Remember only return AI answer
     Assistant:
