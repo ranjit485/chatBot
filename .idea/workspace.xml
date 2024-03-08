@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66056665-2cbb-44b7-99f5-b39fd5908178" name="Changes" comment="update 42 webloader working" />
+    <list default="true" id="66056665-2cbb-44b7-99f5-b39fd5908178" name="Changes" comment="update 43 webloader  deploy" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -374,7 +374,23 @@
       <option name="project" value="LOCAL" />
       <updated>1709898060774</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="update 42 webloader  deploy">
+      <option name="closed" value="true" />
+      <created>1709898228313</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1709898228313</updated>
+    </task>
+    <task id="LOCAL-00037" summary="update 43 webloader  deploy">
+      <option name="closed" value="true" />
+      <created>1709898457722</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1709898457722</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -389,8 +405,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="api call update 7" />
-    <MESSAGE value="api call update 8" />
     <MESSAGE value="api call update 9" />
     <MESSAGE value="api call update 10" />
     <MESSAGE value="api call update 11" />
@@ -414,7 +428,9 @@
     <MESSAGE value="update 30" />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;app.py" />
     <MESSAGE value="update 42 webloader working" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 42 webloader working" />
+    <MESSAGE value="update 42 webloader  deploy" />
+    <MESSAGE value="update 43 webloader  deploy" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 43 webloader  deploy" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
