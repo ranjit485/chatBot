@@ -96,7 +96,7 @@ def start():
 
 @app.route('/chat')
 def chat():
-    return render_template("index.html")
+    return render_template("Templates/index.html")
 
 
 @app.route('/api/v0/ask', methods=['GET'])
@@ -108,3 +108,6 @@ def generate_ans():
     else:
         return "No question provided in the request."
 
+
+if __name__ == '__main__':
+    app.run()
