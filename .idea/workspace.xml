@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66056665-2cbb-44b7-99f5-b39fd5908178" name="Changes" comment="update 32">
+    <list default="true" id="66056665-2cbb-44b7-99f5-b39fd5908178" name="Changes" comment="it is final ,Web loader added with multiple links chunk size is 2000">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/d1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Data/d1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/template/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -379,7 +376,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709874862075</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="it is final ,Web loader added with multiple links chunk size is 2000">
+      <option name="closed" value="true" />
+      <created>1709888182830</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1709888182831</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -394,7 +399,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="api call update 7" />
     <MESSAGE value="api call update 8" />
     <MESSAGE value="api call update 9" />
     <MESSAGE value="api call update 10" />
@@ -419,7 +423,8 @@
     <MESSAGE value="update 30" />
     <MESSAGE value="update 31" />
     <MESSAGE value="update 32" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 32" />
+    <MESSAGE value="it is final ,Web loader added with multiple links chunk size is 2000" />
+    <option name="LAST_COMMIT_MESSAGE" value="it is final ,Web loader added with multiple links chunk size is 2000" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
