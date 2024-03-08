@@ -12,9 +12,9 @@ import os
 from flask import Flask, request, render_template
 import sys
 
-# __import__('pysqlite3')
+__import__('pysqlite3')
 #
-# sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 os.environ["HUGGINGFACEHUB_API_TOKEN"] = "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"
 
@@ -65,7 +65,7 @@ URLS = [
 loader = WebBaseLoader(URLS)
 data = loader.load()
 
-text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
+text_splitter = CharacterTextSplitter(chunk_size=900, chunk_overlap=0)
 chunks = text_splitter.split_documents(data)
 
 for i in data:
@@ -155,5 +155,5 @@ def generate_ans():
         return "No question provided in the request."
 
 
-if __name__ == '__main__':
-    app.run()
+# if __name__ == '__main__':
+#     app.run()
