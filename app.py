@@ -1,5 +1,5 @@
 from flask_cors import CORS
-from langchain_community.document_loaders import TextLoader
+from langchain_community.document_loaders import TextLoader, WebBaseLoader
 from langchain.text_splitter import CharacterTextSplitter, RecursiveCharacterTextSplitter
 from langchain_community.llms import HuggingFaceHub
 from langchain.schema.runnable import RunnablePassthrough
@@ -19,14 +19,64 @@ sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 os.environ["HUGGINGFACEHUB_API_TOKEN"] = "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"
 
 nest_asyncio.apply()
+#
+# loader = TextLoader("Data/d1.txt")
+# docs = loader.load()
+#
+# text_splitter = RecursiveCharacterTextSplitter(chunk_size=109, chunk_overlap=20)
+# chunks = text_splitter.split_documents(docs)
 
-loader = TextLoader("Data/d1.txt")
-docs = loader.load()
+URLS = [
+    'http://aitrcvita.edu.in/index.php',
+    'http://aitrcvita.edu.in/',
+    'http://aitrcvita.edu.in/about-us.php',
+    'http://aitrcvita.edu.in/about-institute.php',
+    'http://aitrcvita.edu.in/fpmessage.php',
+    'http://aitrcvita.edu.in/pmessage.php',
+    'http://aitrcvita.edu.in/edmessage.php',
+    'http://aitrcvita.edu.in/cdmessage.php',
+    'http://aitrcvita.edu.in/tpomessage.php',
+    'http://aitrcvita.edu.in/prmessage.php',
+    'http://aitrcvita.edu.in/ddmessage.php',
+    'http://aitrcvita.edu.in/btech_civil.php',
+    'http://aitrcvita.edu.in/btech_cse.php',
+    'http://aitrcvita.edu.in/btech_e&tc.php',
+    'http://aitrcvita.edu.in/btech_mech.php',
+    'http://aitrcvita.edu.in/department.php',
+    'http://aitrcvita.edu.in/btech_ai_ml.php',
+    'http://aitrcvita.edu.in/btech_ece.php',
+    'http://aitrcvita.edu.in/diploma_ce.php',
+    'http://aitrcvita.edu.in/diploma_cm.php',
+    'http://aitrcvita.edu.in/diploma_ej.php',
+    'http://aitrcvita.edu.in/diploma_ee.php',
+    'http://aitrcvita.edu.in/diploma_me.php',
+    'http://aitrcvita.edu.in/diploma_gsc.php',
+    'http://aitrcvita.edu.in/diploma_ai.php',
+    'http://aitrcvita.edu.in/library.php',
+    'http://aitrcvita.edu.in/infrastructure.php',
+    'http://aitrcvita.edu.in/admission-btech.php',
+    'http://aitrcvita.edu.in/admission-poly.php',
+    'http://aitrcvita.edu.in/academics_btech.php',
+    'http://aitrcvita.edu.in/academics_poly.php',
+    'http://aitrcvita.edu.in/tnp.php',
+    'http://aitrcvita.edu.in/governance.php',
+    'http://aitrcvita.edu.in/rti.php',
+    'http://aitrcvita.edu.in/contact-us.php',
+    'http://aitrcvita.edu.in/naac.php',
+    'http://aitrcvita.edu.in/shop-details.html',
+    'http://aitrcvita.edu.in/placement.php',
+    'http://aitrcvita.edu.in/cell/DiplomaAdmissionPresentation.pdf',
+    'https://www.aitrcvita.edu.in/rti.php',
+]
 
-text_splitter = RecursiveCharacterTextSplitter(chunk_size=109, chunk_overlap=20)
-chunks = text_splitter.split_documents(docs)
 
-for i in docs:
+loader = WebBaseLoader(URLS)
+data = loader.load()
+
+text_splitter = CharacterTextSplitter(chunk_size=2000, chunk_overlap=0)
+chunks = text_splitter.split_documents(data)
+
+for i in data:
     page_con = i.page_content
     print(len(page_con))
     print(page_con)
@@ -61,17 +111,22 @@ def search_in_db(userinput):
 #  Generate response with llm
 def ans_question(input):
     search_db = vectorstore.similarity_search(input)
-    semetric_result = search_db[0].page_content
+    context = search_db[0].page_content
 
     inp = "{query}"
 
-
     template = f"""
-    You are an AI assistant from Adarsh Institute of Technology and Research Centre, Vita, Maharashtra, Sangli.
-    Follow instructions precisely, providing direct and truthful answers.
-    Consider only the given information for responses: {semetric_result}.
-    Instructions: Use bullets, lists, symbols, emojis for better conversation.
-    </s>{inp}</s>
+    
+    User: You are an AI Assistant of Adarsh Institute of Technology and Research Centre, in that follows instructions extremely well.
+    Please be truthful and give direct answers. Please tell 'I don't know' if user query is not in CONTEXT
+    
+    Keep in mind, you will lose the job, if you answer out of CONTEXT questions
+    
+    CONTEXT: {context}
+    Query: {input}
+    
+    Remember only return AI answer
+    Assistant:
     """
 
     prompt = ChatPromptTemplate.from_template(template)
@@ -85,9 +140,9 @@ def ans_question(input):
     response = rag_chain.invoke(input)
     print("RAG RESPONSE :", response)
     print(template)
-    onlyAns = response.split("<|assistant|>")
-    # print("Index 0 ", onlyAns[0])
-    # print("Index 1 ", onlyAns[1])
+    onlyAns = response.split("Assistant:")
+    print("Index 0 ", onlyAns[0])
+    print("Index 1 ", onlyAns[1])
     return onlyAns[1]
 
 
