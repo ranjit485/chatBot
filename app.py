@@ -13,7 +13,7 @@ from flask import Flask, request, render_template
 import sys
 
 __import__('pysqlite3')
-#
+
 sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 os.environ["HUGGINGFACEHUB_API_TOKEN"] = "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"
@@ -112,8 +112,7 @@ def ans_question(input):
 
     Remember only return answer from CONTEXT
     I don't know' if {input} is not in {context}  
-    Assistant:
-    """
+    Assistant:"""
 
     prompt = ChatPromptTemplate.from_template(template)
 
