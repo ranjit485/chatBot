@@ -106,11 +106,12 @@ def ans_question(input):
     Please be truthful and give direct answers. Please tell 'I don't know' if user query is not in CONTEXT
     
     Keep in mind, you will lose the job, if you answer out of CONTEXT questions
-
+    
     CONTEXT: {context}
     Query: {input}
 
     Remember only return answer from CONTEXT
+    Don’t justify your answers. Don’t give information not mentioned in the CONTEXT INFORMATION
     I don't know' if {input} is not in {context}  
     Assistant:"""
 
