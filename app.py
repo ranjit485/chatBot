@@ -65,7 +65,7 @@ URLS = [
 loader = WebBaseLoader(URLS)
 data = loader.load()
 
-text_splitter = CharacterTextSplitter(chunk_size=900, chunk_overlap=0)
+text_splitter = CharacterTextSplitter(chunk_size=200, chunk_overlap=10)
 chunks = text_splitter.split_documents(data)
 
 for i in data:
