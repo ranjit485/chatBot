@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canigo bot</title>
+    <style>
+        /* Your CSS styles here */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #chat-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            padding: 15px;
+            font-size: 1.2em;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        #chat-icon:hover {
+            background-color: #45a049;
+        }
+
+        #chatbox {
+            position: fixed;
+            bottom: 30px;
+            right: 85px;
+            width: 80%;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            z-index: 999;
+        }
+
+
+
+        #close-btn {
+            border: none;
+            border-radius: 50%;
+            padding: 10px;
+            font-size: 1em;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        #close-btn:hover {
+            background-color: #45a049;
+        }
+
+        #chatbox {
+            width: 700px;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: auto;
+        }
+
+        #chatbox {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: auto;
+        }
+
+        #chat-container {
+            height: 600px;
+            overflow: scroll;
+        }
+
+        .message-card {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .user-message {
+            background-color: #eee;
+            color: #0c0c0c;
+            border-radius: 8px;
+            padding: 8px;
+            max-width: 70%;
+        }
+
+        .bot-message {
+            background-color: #eee;
+            border-radius: 8px;
+            padding: 8px;
+            max-width: 70%;
+        }
+
+        #input-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+        }
+
+        #user-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            outline: none;
+            margin-right: 10px;
+        }
+
+        #send-button {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        #head {
+            background-color: #4CAF50;
+            padding: 6px;
+            font-weight: 500;
+            color: #fff;
+        }
+
+        #table-container {
+            padding: 5px;
+            width: 90%;
+            margin: auto;
+            /* Center the chatbox horizontally */
+        }
+
+        #response-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        #response-table th,
+        #response-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        #response-table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .user-message {
+            background-color: #eee;
+            color: #030303;
+            border-radius: 8px;
+            padding: 8px;
+            max-width: 70%;
+        }
+
+        .bot-message {
+            background-color: #eee;
+            border-radius: 8px;
+            padding: 8px;
+            max-width: 70%;
+        }
+
+        #head {
+            background-color: #4CAF50;
+            padding: 6px;
+            font-weight: 500;
+            color: #fff;
+        }
+
+        #header {
+            display: flex;
+            background-color: #4CAF50;
+            text-align: center;
+            color: #fff;
+        }
+
+        #logo {
+            width: 50px;
+            /* Adjust the width as needed */
+            height: auto;
+            /* Automatically adjust the height */
+            margin-right: 10px;
+        }
+
+        /* Scroll bar styles for the chatbox content */
+        #chatbox {
+            /* Your existing styles */
+
+            /* Add the following styles for the scroll bar */
+            scrollbar-width: thin;
+            scrollbar-color: #4CAF50 #fff;
+        }
+
+        #chatbox::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        #chatbox::-webkit-scrollbar-track {
+            background: #fff;
+        }
+
+        #chatbox::-webkit-scrollbar-thumb {
+            background-color: #4CAF50;
+            border-radius: 5px;
+        }
+
+        #chatbox::-webkit-scrollbar-thumb:hover {
+            background-color: #45a049;
+        }
+
+        #loader-container {
+            display: none;
+            align-items: center;
+            margin: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 150px;
+        }
+
+        #loader-img {
+            width: 80px;
+            /* Adjust the width as needed */
+            height: 80px;
+            /* Adjust the height as needed */
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="chat-icon" onclick="toggleChatbox()">🤖</button>
+
+    <div id="chatbox">
+        <div id="header">
+            <button id="close-btn" onclick="toggleChatbox()">✖</button>
+        </div>
+
+        <div id="chat-container">
+            <!-- Initial messages go here -->
+
+            <div class="message-card" id="bot-message-card">
+                <img class="avatar"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9isOVK9soNNKwXVlyBSSPD6UOM8N-1eIJJQ&usqp=CAU"
+                    alt="ChatBot Avatar" id="bot-avatar">
+                <div class="bot-message">Hi! How can i help you</div>
+            </div>
+            <div id="loader-container">
+                <img id="loader-img" src="assets/loading.gif" alt="Loading...">
+            </div>
+        </div>
+
+
+        <div id="input-container">
+            <input type="text" id="user-input" placeholder="Type your question...">
+            <button id="send-button" onclick="sendMessage()">Send</button>
+        </div>
+
+        <script>
+            async function sendMessage() {
+                const userInput = document.getElementById('user-input').value;
+                const chatContainer = document.getElementById('chat-container');
+                // const responseTable = document.getElementById('response-table');
+
+                // User message
+                const userMessageCard = document.createElement('div');
+                userMessageCard.className = 'message-card';
+                userMessageCard.innerHTML = `
+                      <img class="avatar" src="https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes-thumbnail.png" alt="User Avatar">
+                      <div class="user-message">${userInput}</div>
+                      `;
+                chatContainer.appendChild(userMessageCard);
+
+                const loader = document.getElementById("loader-container")
+
+                loader.style.display = 'block'
+
+
+                // Call API and get response (replace API_URL with your actual API endpoint)
+                try {
+
+                    const apiResponse = await fetch(`http://127.0.0.1:5000/api/v0/ask?question=${userInput}`);
+                    const responseData = await apiResponse.text();
+
+                    console.log(responseData)
+                    textToSpeech(responseData);
+
+
+                    // Check if the response is an array and not empty
+                    if (Array.isArray(responseData) && responseData.length > 0) {
+                        // Get the keys from the first item to use as table headers    
+
+                        aiAvtar = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9isOVK9soNNKwXVlyBSSPD6UOM8N-1eIJJQ&usqp=CAU"
+                        avtarSrc = "https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes-thumbnail.png"
+
+
+                        // Display error message
+                        const botMessageCard = document.createElement('div');
+                        botMessageCard.className = 'message-card';
+                        botMessageCard.innerHTML = `
+                    <img class="avatar" src="${aiAvtar}" alt="Bot Avatar">
+                    <div class="bot-message">Error: No data found </div>
+                    `;
+                        chatContainer.appendChild(botMessageCard);
+
+                        const botMessage = document.createElement('div');
+                        botMessage.className = 'message-card';
+                        botMessage.innerHTML = `
+                    <img class="avatar" src="${aiAvtar}" alt="ChatBot Avatar" id="bot-avatar">
+
+                    `;
+                        botMessage.appendChild(tablContainer)
+
+
+
+                        chatContainer.appendChild(botMessage)
+
+
+                    } else {
+                        console.log(responseData)
+                        aiAvtar = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9isOVK9soNNKwXVlyBSSPD6UOM8N-1eIJJQ&usqp=CAU"
+
+                        // Display error message
+                        const botMessageCard = document.createElement('div');
+                        botMessageCard.className = 'message-card';
+                        botMessageCard.innerHTML = `
+                        <img class="avatar" src="${aiAvtar}" alt="Bot Avatar">
+                        <div class="bot-message">Error: No data found </div>
+                    `;
+                        chatContainer.appendChild(botMessageCard);
+                    }
+
+                } catch (error) {
+                    console.log(error)
+                } finally {
+                    loader.style.display = 'none'
+                }
+            }
+
+
+            function toggleChatbox() {
+                const chatbox = document.getElementById('chatbox');
+                const currentOpacity = parseFloat(window.getComputedStyle(chatbox).opacity);
+
+                if (currentOpacity === 0) {
+                    chatbox.style.display = 'block';
+                    chatbox.style.opacity = 1;
+                } else {
+                    chatbox.style.opacity = 0;
+                    setTimeout(() => { chatbox.style.display = 'none'; }, 300);
+                }
+            }
+
+                    // Text to Speech
+
+        const synth = window.speechSynthesis;
+
+        const textToSpeech = (string) => {
+        let voice = new SpeechSynthesisUtterance(string);
+        voice.text = string;
+        voice.lang = "en-US";
+        voice.volume = 1;
+        voice.rate = 1;
+        voice.pitch = 0; // Can be 0, 1, or 2
+        synth.speak(voice);
+        }
+        textToSpeech("hello iam ranjit");
+        </script>
+    </div>
+</body>
+
+</html>

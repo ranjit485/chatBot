@@ -240,6 +240,19 @@
             display: block;
         }
     }
+    
+    #badge {
+        background-color: rgb(255, 208, 0);
+        padding: 7px;
+        color: #2d0349;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        display: inline-block;
+        border-radius: 6px;
+        margin-top: 6px;
+    }
+    #badge :hover {
+        background-color: rgb(243, 240, 229);
+    }
 </style>
 
 <body>
@@ -249,13 +262,13 @@
     </button>
     <div class="chatbot">
         <header>
-            <h2>AITRC </h2>
+            <h2>AITRC s</h2>
             <span class="close-btn material-symbols-outlined">close</span>
         </header>
         <ul class="chatbox">
             <li class="chat incoming">
                 <span class="material-symbols-outlined">smart_toy</span>
-                <p>Hi there 👋<br>Your connected with Meghna</p>
+                <p>Hi there 👋<br>How can I help you today?</p>
             </li>
         </ul>
         <div class="chat-input">
@@ -279,7 +292,7 @@
             chatLi.classList.add("chat", `${className}`);
             let chatContent = className === "outgoing" ? `<p></p>` : `<span class="material-symbols-outlined">smart_toy</span><p></p>`;
             chatLi.innerHTML = chatContent;
-            chatLi.querySelector("p").textContent = message;
+            chatLi.querySelector("p").innerHTML = message;
             return chatLi; // return chat <li> element
         }
         // const messageElement = chatElement.querySelector("p");
@@ -290,7 +303,7 @@
 
 
         // Make the API call using fetch
-        fetch(`/api/v0/ask?question=${encodeURIComponent(userMessage)}`, {
+        fetch(`http://127.0.0.1:5000/api/v0/ask?question=${encodeURIComponent(userMessage)}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'text/plain',  // Adjust the content type if needed

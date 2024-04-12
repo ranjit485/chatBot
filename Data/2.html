@@ -213,6 +213,20 @@
         visibility: visible;
     }
 
+    #badge {
+        background-color: rgb(250, 249, 247);
+        padding: 12px;
+        border: 1ps dotted black;
+        color: #2d0349;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        display: inline-block;
+        border-radius: 6px;
+        margin-top: 6px;
+    }
+    #badge :hover {
+        background-color: rgb(243, 240, 229);
+    }
+
     @media (max-width: 490px) {
         .chatbot-toggler {
             right: 20px;
@@ -240,6 +254,11 @@
             display: block;
         }
     }
+    .suggestion{
+        display: flex;
+        flex-direction: column;
+        margin-top: 6px;
+    }
 </style>
 
 <body>
@@ -253,10 +272,19 @@
             <span class="close-btn material-symbols-outlined">close</span>
         </header>
         <ul class="chatbox">
-            <li class="chat incoming">
+            <div class="chat incoming">
                 <span class="material-symbols-outlined">smart_toy</span>
-                <p>Hi there 👋<br>Your connected with Meghna</p>
-            </li>
+                <li>
+                    <p>Hi, there. I'm Meghna!</p>
+                    <p id="badge">Would you like help with one of these topics?</p>
+                    <div class="suggestion"> 
+                        <p id="badge">Course Information</p>
+                        <p id="badge">Academic Calendar</p>
+                        <p id="badge">Student Services</p>
+                        <p id="badge">Admission</p>
+                    </div>
+                </li>
+            </div>
         </ul>
         <div class="chat-input">
             <textarea placeholder="Enter a message..." spellcheck="false" required></textarea>
@@ -273,45 +301,96 @@
         let userMessage = null; // Variable to store user's message
         const inputInitHeight = chatInput.scrollHeight;
 
+
         const createChatLi = (message, className) => {
             // Create a chat <li> element with passed message and className
             const chatLi = document.createElement("li");
             chatLi.classList.add("chat", `${className}`);
-            let chatContent = className === "outgoing" ? `<p></p>` : `<span class="material-symbols-outlined">smart_toy</span><p></p>`;
+
+            // Determine the content of the chat based on the class name
+            let chatContent = '';
+            if (className === "outgoing") {
+                chatContent = `<p>${message}</p>`;
+            } else {
+                chatContent = `
+                    <span class="material-symbols-outlined">smart_toy</span>
+                    <div id="suggestion" class="suggestion">
+                        <p>${message}</p>
+                    </div>
+                `;
+            }
+
+            // Set the content of the chat <li> element
             chatLi.innerHTML = chatContent;
-            chatLi.querySelector("p").textContent = message;
+
             return chatLi; // return chat <li> element
         }
+
+        const createChatLiCustom = (message, className) => {
+            // Create a chat <li> element with passed message and className
+            const chatLi = document.createElement("li");
+            chatLi.classList.add("chat", `${className}`);
+
+            // Determine the content of the chat based on the class name
+            let chatContent = '';
+            if (className === "outgoing") {
+                chatContent = `<p>${message}</p>`;
+            } else {
+                chatContent = `
+                <div class="chat incoming">
+                    <span class="material-symbols-outlined">smart_toy</span>
+                    <li>
+                        <p id="badge">Would you like help with one of these topics?</p>
+                        <div class="suggestion"> 
+                            <p id="badge">Course Information</p>
+                            <p id="badge">Academic Calendar</p>
+                            <p id="badge">Student Services</p>
+                            <p id="badge">Admission</p>
+                        </div>
+                    </li>
+                </div>
+                `;
+            }
+
+            // Set the content of the chat <li> element
+            chatLi.innerHTML = chatContent;
+
+            return chatLi; // return chat <li> element
+        }
+
+
         // const messageElement = chatElement.querySelector("p");
 
         const generateResponse = (chatElement) => {
 
-        const messageElement = chatElement.querySelector("p");
+
+            const messageElement = chatElement.querySelector("p");
+            // chatbox.appendChild(createChatLiCustom("Would you like help with one of these topics?", "incoming"));
 
 
-        // Make the API call using fetch
-        fetch(`/api/v0/ask?question=${encodeURIComponent(userMessage)}`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'text/plain',  // Adjust the content type if needed
-                // You can add additional headers if needed
-            },
-            // You can include credentials: 'same-origin' or 'include' if necessary
-        })
-        .then(response => response.text())  // Use response.text() for plain text response
-        .then(data => {
-                // Handle the response data
-                console.log(data);
-                messageElement.textContent = data;
+            // Make the API call using fetch
+            fetch(`https://chatbot-nwvf.onrender.com/api/v0/ask?question=${encodeURIComponent(userMessage)}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'text/plain',  // Adjust the content type if needed
+                    // You can add additional headers if needed
+                },
+                // You can include credentials: 'same-origin' or 'include' if necessary
+            })
+                .then(response => response.text())  // Use response.text() for plain text response
+                .then(data => {
+                    // Handle the response data
+                    console.log(data);
+                    messageElement.textContent = data;
+                    chatbox.appendChild(createChatLiCustom("Would you like help with one of these topics?", "incoming"));
+                })
+                .catch(error => {
+                    // Handle errors
+                    console.error('Error:', error);
+                }).finally(() => chatbox.scrollTo(0, chatbox.scrollHeight));
 
-        })
-        .catch(error => {
-            // Handle errors
-            console.error('Error:', error);
-        }).finally(() => chatbox.scrollTo(0, chatbox.scrollHeight));
 
-
-    }
+        }
 
 
         const handleChat = () => {
@@ -328,7 +407,7 @@
 
             setTimeout(() => {
                 // Display "Thinking..." message while waiting for the response
-                const incomingChatLi = createChatLi("Typeing...", "incoming");
+                const incomingChatLi = createChatLi("Typeing", "incoming");
                 chatbox.appendChild(incomingChatLi);
                 chatbox.scrollTo(0, chatbox.scrollHeight);
                 generateResponse(incomingChatLi);
@@ -349,6 +428,25 @@
                 handleChat();
             }
         });
+
+        // Add event listener to the chatbox to handle click events on suggestion elements
+        chatbox.addEventListener('click', (event) => {
+            // Check if the clicked element is a suggestion element
+            if (event.target.matches('.suggestion #badge')) {
+                // Get the suggestion text
+                const suggestionText = event.target.textContent.trim();
+
+                // Insert the suggestion text into the chat input field
+                chatInput.value = suggestionText;
+
+                // Remove the suggestion elements
+                event.target.parentElement.remove();
+
+                // Trigger the chatbot response
+                handleChat();
+            }
+        });
+
 
         sendChatBtn.addEventListener("click", handleChat);
         closeBtn.addEventListener("click", () => document.body.classList.remove("show-chatbot"));
